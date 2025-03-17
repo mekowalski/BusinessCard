@@ -6,7 +6,9 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,14 +18,13 @@ import com.example.businesscard.ui.theme.BusinessCardTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             BusinessCardTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Surface(
+                    modifier =  Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    //call BusinessCard()
                 }
             }
         }
@@ -31,17 +32,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+//BusinessCard function
+//1 column with 2 rows
+//row1: image:painter, name:string, title:string
+//row2: phone number:int, email:string, location:string
+
+//private BusinessCardInfo function
+//alignment:center
+//arrangement:center
+//name font:bold, title font: default
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     BusinessCardTheme {
-        Greeting("Android")
+        //call BusinessCard()
     }
 }
