@@ -41,12 +41,16 @@ class MainActivity : ComponentActivity() {
 //1 column with 2 rows
 //row1: image:painter, name:string, title:string
 //row2: phone number:int, email:string, location:string
+//maybe multiple rows, 2-4 for phone, email, location?
 //center align content vertically on screen(or each row?)
 
 @Composable
 private fun BusinessCardInfo(
     name: String,
     title: String,
+    phoneNumber: String,
+    email: String,
+    location: String,
     backgroundColor: Color,
     modifier: Modifier
 ) {
@@ -65,6 +69,18 @@ private fun BusinessCardInfo(
         Text(
             text = title,
             fontSize = 15.sp
+        )
+        Text(
+            text = phoneNumber,
+            fontSize = 12.sp
+        )
+        Text(
+            text = email,
+            fontSize = 12.sp
+        )
+        Text(
+            text = location,
+            fontSize = 12.sp
         )
     }
 }
