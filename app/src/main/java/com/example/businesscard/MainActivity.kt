@@ -56,8 +56,11 @@ fun BusinessCard() {
         }
         Row(Modifier.weight(1f)) {
             BusinessCardContact(
+                phoneIcon = painterResource(R.drawable.baseline_phone_24),
                 phoneNumber = stringResource(R.string.phone_number),
+                emailIcon = painterResource(R.drawable.baseline_alternate_email_24),
                 email = stringResource(R.string.email),
+                flagIcon = painterResource(R.drawable.baseline_flag_24),
                 location = stringResource(R.string.location),
                 backgroundColor = Color(0xDBFFE374),
                 modifier = Modifier.weight(1f)
@@ -104,6 +107,9 @@ private fun BusinessCardInfo(
 //create contact section
 @Composable
 private fun BusinessCardContact(
+    phoneIcon: Painter,
+    emailIcon: Painter,
+    flagIcon: Painter,
     phoneNumber: String,
     email: String,
     location: String,
@@ -118,18 +124,27 @@ private fun BusinessCardContact(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = phoneNumber,
-            fontSize = 12.sp
-        )
-        Text(
-            text = email,
-            fontSize = 12.sp
-        )
-        Text(
-            text = location,
-            fontSize = 12.sp
-        )
+        Row {
+            Image(painter = phoneIcon, contentDescription = null)
+            Text(
+                text = phoneNumber,
+                fontSize = 12.sp
+            )
+        }
+        Row {
+            Image(painter = emailIcon, contentDescription = null)
+            Text(
+                text = email,
+                fontSize = 12.sp
+            )
+        }
+        Row {
+            Image(painter = flagIcon, contentDescription = null)
+            Text(
+                text = location,
+                fontSize = 12.sp
+            )
+        }
     }
 }
 
