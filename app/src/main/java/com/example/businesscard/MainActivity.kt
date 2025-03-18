@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun BusinessCard() {
     Column(Modifier.fillMaxSize()) {
-        Row(Modifier.weight(1f)) {
+        Row(Modifier.weight(3f)) {
             BusinessCardInfo(
                 imagePainter = painterResource(R.drawable.mkphoto),
                 name = stringResource(R.string.name),
@@ -115,7 +115,7 @@ private fun BusinessCardContact(
             .fillMaxSize()
             .background(backgroundColor)
             .padding(15.dp),
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
