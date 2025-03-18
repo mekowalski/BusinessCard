@@ -50,30 +50,33 @@ fun BusinessCard() {
                 imagePainter = painterResource(R.drawable.mkphoto),
                 name = stringResource(R.string.name),
                 title = stringResource(R.string.title),
-                phoneNumber = stringResource(R.string.phone_number),
-                email = stringResource(R.string.email),
-                location = stringResource(R.string.location),
                 backgroundColor = Color(0xDBFFE374),
                 modifier = Modifier.weight(1f),
             )
         }
+        Row(Modifier.weight(1f)) {
+            BusinessCardContact(
+                phoneNumber = stringResource(R.string.phone_number),
+                email = stringResource(R.string.email),
+                location = stringResource(R.string.location),
+                backgroundColor = Color(0xDBFFE374),
+                modifier = Modifier.weight(1f)
+            )
+        }
     }
 }
-//BusinessCard function
-//1 column with 2 rows
-//row1: image:painter, name:string, title:string
-//row2: phone number:int, email:string, location:string
-//maybe multiple rows, 2-4 for phone, email, location?
-//center align content vertically on screen(or each row?)
+//removed row and everything is the same
+//tried to create another row with attributes separated but that seems like
+//i would need to create another private function to call in the public function
+//could divide sections to name/title part and contact part
+//then those could be separated into rows
+//would be cool to add icons, is that res or part of Material?
 
 @Composable
 private fun BusinessCardInfo(
     imagePainter: Painter,
     name: String,
     title: String,
-    phoneNumber: String,
-    email: String,
-    location: String,
     backgroundColor: Color,
     modifier: Modifier
 ) {
@@ -88,13 +91,33 @@ private fun BusinessCardInfo(
         Image(painter = imagePainter, contentDescription = null)
         Text(
             text = name,
-            modifier = Modifier.padding(top = 24.dp, bottom = 9.dp),
+            modifier = Modifier.padding(top = 30.dp, bottom = 9.dp),
             fontWeight = FontWeight.Bold
         )
         Text(
             text = title,
             fontSize = 15.sp
         )
+    }
+}
+
+//create contact section
+@Composable
+private fun BusinessCardContact(
+    phoneNumber: String,
+    email: String,
+    location: String,
+    backgroundColor: Color,
+    modifier: Modifier
+) {
+    Column(
+        modifier = modifier
+            .fillMaxSize()
+            .background(backgroundColor)
+            .padding(15.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(
             text = phoneNumber,
             fontSize = 12.sp
@@ -109,10 +132,6 @@ private fun BusinessCardInfo(
         )
     }
 }
-//private BusinessCardInfo function
-//alignment:center
-//arrangement:center
-//name font:bold, title font: default
 
 @Preview(showBackground = true)
 @Composable

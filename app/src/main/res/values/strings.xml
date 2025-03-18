@@ -2,7 +2,7 @@
     <string name="app_name">BusinessCard</string>
     <string name="name">Malind Kowalski</string>
     <string name="title">Software Developer who is ALWAYS Learning!</string>
-    <string name="phone_number">123 456 789</string>
+    <string name="phone_number">123 456 7890</string>
     <string name="email">malind@sampleemail.com</string>
     <string name="location">Somewhere in the mountains</string>
 </resources>
