@@ -56,11 +56,11 @@ fun BusinessCard() {
         }
         Row(Modifier.weight(1f)) {
             BusinessCardContact(
-                phoneIcon = painterResource(R.drawable.baseline_phone_24),
+                phoneIcon = painterResource(R.drawable.outline_call_24),
                 phoneNumber = stringResource(R.string.phone_number),
-                emailIcon = painterResource(R.drawable.baseline_alternate_email_24),
+                emailIcon = painterResource(R.drawable.outline_email_24),
                 email = stringResource(R.string.email),
-                flagIcon = painterResource(R.drawable.baseline_flag_24),
+                flagIcon = painterResource(R.drawable.outline_flag_24),
                 location = stringResource(R.string.location),
                 backgroundColor = Color(0xDBFFE374),
                 modifier = Modifier.weight(1f)
@@ -68,12 +68,6 @@ fun BusinessCard() {
         }
     }
 }
-//removed row and everything is the same
-//tried to create another row with attributes separated but that seems like
-//i would need to create another private function to call in the public function
-//could divide sections to name/title part and contact part
-//then those could be separated into rows
-//would be cool to add icons, is that res or part of Material?
 
 @Composable
 private fun BusinessCardInfo(
@@ -99,7 +93,8 @@ private fun BusinessCardInfo(
         )
         Text(
             text = title,
-            fontSize = 15.sp
+            fontSize = 15.sp,
+            fontWeight = FontWeight.Bold
         )
     }
 }
@@ -124,7 +119,7 @@ private fun BusinessCardContact(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Row {
+        Row{
             Image(painter = phoneIcon, contentDescription = null)
             Text(
                 text = phoneNumber,
